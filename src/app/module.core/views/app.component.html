@@ -1,4 +1,4 @@
-<app-header *ngIf="!isLogin" [user]="user | async" (menuClicked)="menuClicked()" (logout)="logoutClicked()"></app-header>
+<app-header *ngIf="!isLogin" [user]="usuario" (menuClicked)="menuClicked()" (logout)="logoutClicked()"></app-header>
 <mat-sidenav-container>
     <mat-sidenav [opened]="menuOpen" mode="side">
         <app-left-menu></app-left-menu>

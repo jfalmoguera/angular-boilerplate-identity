@@ -1,28 +1,33 @@
-import { Component, OnInit } from '@angular/core';
-import { IdValue } from 'src/app/entities';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { IdValue, Site } from 'src/app/entities';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-site-filter',
   templateUrl: './site-filter.component.html',
-  styleUrls: ['./site-filter.component.css']
+  styleUrls: ['./site-filter.component.scss']
 })
 export class SiteFilterComponent implements OnInit {
 
-  countries: IdValue[] = [
-    {
-      id: 'es', value: 'España',
-    },
-    {
-      id: 'fr', value: 'Francia',
-    },
-    {
-      id: 'it', value: 'Italia',
-    }
-  ];
+  @Input() countries: IdValue[] = [];
+  @Output() searchClicked = new EventEmitter<Site>(false);
 
-  constructor() { }
+  filterForm: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+    this.filterForm = fb.group({
+      name: [''],
+      countryId: [''],
+      enable: ['']
+    });
+
+  }
 
   ngOnInit() {
+  }
+
+  searchSites(filter: Site) {
+    this.searchClicked.emit(filter);
   }
 
 }

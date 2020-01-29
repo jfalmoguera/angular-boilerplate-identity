@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from 'src/app/entities';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 
 @Injectable({
@@ -10,7 +10,7 @@ export class AuthService {
 
   ZETES_USER = 'ZETES_USER';
 
-  $user = new BehaviorSubject(this.getUser());
+  private $user = new BehaviorSubject(this.getUser());
 
   constructor() {
     if (this.isUserAuthenticated) {
@@ -36,5 +36,9 @@ export class AuthService {
       return new User(JSON.parse(localStorage.getItem(this.ZETES_USER)));
     }
     return null;
+  }
+
+  get User(): Observable<User> {
+    return this.$user.asObservable();
   }
 }

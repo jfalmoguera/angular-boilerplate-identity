@@ -1,2 +1,2 @@
-<app-site-filter> </app-site-filter>
-<app-site-grid></app-site-grid>
+<app-site-filter [countries]="countries | async" (searchClicked)="searchClicked($event)"> </app-site-filter>
+<app-site-grid [sites]="sitesList"></app-site-grid>

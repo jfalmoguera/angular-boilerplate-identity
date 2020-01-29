@@ -1,0 +1,90 @@
+// table {
+//   width: 100%;
+// }
+
+.text-align-center {
+  text-align: center;
+}
+
+.container {
+  padding: 20px;
+  .grid-container {
+    margin-top: 20px;
+  }
+}
+
+.grid-container {
+  display: flex;
+  flex-direction: column;
+  // max-height: 500px;
+  // min-width: 300px;
+}
+
+.mat-table {
+  position: relative;
+  overflow: auto;
+  max-height: 600px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.959);
+  height: 100vh;
+}
+
+.mat-form-field-underline {
+  background-color: transparent;
+}
+.mat-form-field-flex {
+  font-size: 14px;
+  line-height: 1em;
+  color: #555;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 8px;
+  padding: 2px;
+}
+.mat-form-field-wrapper {
+  padding-bottom: 1.25em;
+  padding-top: 1.25em;
+}
+.mat-form-field-infix {
+  border: 0px;
+}
+.mat-paginator {
+  background-color: white;
+}
+.mat-row,
+.mat-header-row {
+  min-width: 1123px;
+  width: 100%;
+}
+
+.mat-header-cell,
+.mat-cell {
+  padding-top: 10px;
+}
+
+.table-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 50%;
+  box-shadow: none !important;
+  top: 50%;
+  background: transparent;
+}
+
+th,
+td {
+  overflow: hidden;
+  width: 200px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mat-footer-row,
+.mat-header-row,
+.mat-row {
+  display: inline-flex;
+  min-width: 100%;
+}

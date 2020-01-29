@@ -1,21 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router, NavigationStart, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { User } from 'src/app/entities';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'sites-mngt';
 
   menuOpen = false;
   isLogin = true;
-  user: Observable<User> = this.authService.$user;
+
+  usuario: User;
+
+  user: Observable<User> = this.authService.User;
+
+  subscriptions: Subscription[] = [];
 
   constructor(private authService: AuthService, private router: Router) {
 
@@ -42,8 +47,17 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.subscriptions.push(this.authService.User.subscribe(x => {
+      if (x) {
+        this.usuario = x;
+      }
+    }));
   }
 
+  ngOnDestroy() {
+    this.subscriptions.forEach(s => s.unsubscribe());
+  }
 
   logoutClicked() {
     this.authService.logout();
