@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <mat-icon (click)="menuClicked.emit()">menu</mat-icon>
+    <span class="title">Sites Management</span>
+    <span class="example-spacer"></span>
+    <div class="navlinks">
+      <span class="user">{{user?.name}} {{user?.surname}}</span>
+      <mat-icon title="Log out" (click)="onLogout()">logout</mat-icon>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

@@ -1,0 +1,14 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title> Sites Filter</mat-card-title>
+  </mat-card-header>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+    <mat-form-field fxFlex="0 0 20%">
+      <mat-select placeholder="Countries">
+        <mat-option></mat-option>
+        <mat-option *ngFor="let item of countries" [value]="item.id">{{item.value}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+</mat-card>
