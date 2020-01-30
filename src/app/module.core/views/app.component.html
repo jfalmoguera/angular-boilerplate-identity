@@ -1,4 +1,5 @@
-<app-header *ngIf="!isLogin" [user]="usuario" (menuClicked)="menuClicked()" (logout)="logoutClicked()"></app-header>
+<app-header *ngIf="!isLogin" [user]="usuario" (menuClicked)="menuClicked()" (logout)="logoutClicked()" [selectedLanguage]="selectedLanguage"
+    (toogleLanguage)="toogleLanguage($event)"></app-header>
 <mat-sidenav-container>
     <mat-sidenav [opened]="menuOpen" mode="side">
         <app-left-menu></app-left-menu>
@@ -6,4 +7,5 @@
     <mat-sidenav-content>
         <router-outlet></router-outlet>
     </mat-sidenav-content>
+
 </mat-sidenav-container>

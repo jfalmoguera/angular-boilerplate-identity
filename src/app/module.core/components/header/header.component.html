@@ -1,8 +1,16 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" *transloco="let t">
   <mat-toolbar-row>
     <mat-icon (click)="menuClicked.emit()">menu</mat-icon>
-    <span class="title">Sites Management</span>
+    <span class="title">{{ 'title' | transloco }}</span>
     <span class="example-spacer"></span>
+    <select [ngModel]="selectedLanguage" (ngModelChange)="toogleLanguage.emit($event)">
+      <option value="es">
+        {{ t('spanishLabel') }}
+      </option>
+      <option value="en">
+        {{ t('englishLabel') }}
+      </option>
+    </select>
     <div class="navlinks">
       <span class="user">{{user?.name}} {{user?.surname}}</span>
       <mat-icon title="Log out" (click)="onLogout()">logout</mat-icon>

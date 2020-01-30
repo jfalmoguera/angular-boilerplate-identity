@@ -8,9 +8,12 @@ import { User } from 'src/app/entities';
 })
 export class HeaderComponent implements OnInit {
 
+  @Input() selectedLanguage;
+
   @Input() user: User;
   @Output() logout = new EventEmitter<boolean>(false);
   @Output() menuClicked = new EventEmitter<boolean>(false);
+  @Output() toogleLanguage = new EventEmitter<string>(false);
 
   constructor() { }
 

@@ -4,6 +4,7 @@ import { Router, NavigationStart, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { User } from 'src/app/entities';
 import { Observable, Subscription } from 'rxjs';
+import { TranslocoService } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-root',
@@ -21,8 +22,12 @@ export class AppComponent implements OnInit, OnDestroy {
   user: Observable<User> = this.authService.User;
 
   subscriptions: Subscription[] = [];
+  selectedLanguage = 'es';
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(private authService: AuthService, private router: Router, private translateService: TranslocoService) {
+
+    this.translateService.setDefaultLang(this.selectedLanguage);
+    this.translateService.setActiveLang(this.selectedLanguage);
 
     router.events.pipe(filter((event: any) => event instanceof NavigationStart)).subscribe(ev => {
       this.isLogin = ev.url === '/login';
@@ -58,6 +63,13 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.subscriptions.forEach(s => s.unsubscribe());
   }
+
+
+
+  toogleLanguage(lang: string) {
+    this.translateService.setActiveLang(lang);
+  }
+
 
   logoutClicked() {
     this.authService.logout();
