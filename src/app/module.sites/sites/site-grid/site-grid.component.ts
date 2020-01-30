@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { Site } from 'src/app/entities';
 import { MatTableDataSource } from '@angular/material';
 
@@ -13,6 +13,8 @@ export class SiteGridComponent implements OnInit, OnChanges {
   @Input() set sites(value: Site[]) {
     this.dataSource.data = value;
   }
+
+  @Output() rowClicked = new EventEmitter<Site>(false);
 
   constructor() { }
   dataSource: MatTableDataSource<Site> = new MatTableDataSource<Site>();
@@ -37,6 +39,10 @@ export class SiteGridComponent implements OnInit, OnChanges {
 
   ngOnInit() {
 
+  }
+
+  rowSelected(row: Site) {
+    this.rowClicked.emit(row);
   }
 
 }

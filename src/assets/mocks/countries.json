@@ -14,5 +14,9 @@
     {
         "id": "de",
         "value": "Alemania"
+    },
+    {
+        "id": "CN",
+        "value": "China"
     }
 ]

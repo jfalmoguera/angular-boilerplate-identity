@@ -11,7 +11,8 @@ export class DataReferenceService {
 
   getContries(): Observable<Array<IdValue>> {
 
-    const url = 'https://my.api.mockaroo.com/countries.json?key=6ece90b0';
+    // const url = 'https://my.api.mockaroo.com/countries.json?key=6ece90b0';
+    const url = 'assets/mocks/countries.json';
 
     return this.httpClient.get<IdValue[]>(url)
       .pipe(map(x => x.map(e => new IdValue(e))));

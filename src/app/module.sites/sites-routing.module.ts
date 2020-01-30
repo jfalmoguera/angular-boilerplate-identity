@@ -6,7 +6,13 @@ import { SiteDetailComponent } from './site-detail/site-detail.component';
 
 const routes: Routes = [
   {
-    path: '', component: SitesComponent,
+    path: '', redirectTo: 'sites-list',
+  },
+  {
+    path: 'sites-list', component: SitesComponent,
+  },
+  {
+    path: 'site-detail/:id', component: SiteDetailComponent
   },
   {
     path: 'site-detail', component: SiteDetailComponent

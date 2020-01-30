@@ -1,3 +1,35 @@
-<p>
-  site-detail works!
-</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title> Sites</mat-card-title>
+  </mat-card-header>
+  <form [formGroup]="siteForm">
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+      <mat-form-field fxFlex="0 0 20%">
+        <mat-select placeholder="Country" formControlName="countryId">
+          <mat-option></mat-option>
+          <mat-option *ngFor="let item of countries | async" [value]="item.id">{{item.value}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="siteForm.dirty &&  siteForm.controls.countryId.touched && siteForm.controls.countryId.invalid">
+          {{'The field country is required'}}</mat-error>
+      </mat-form-field>
+      <mat-form-field fxFlex="0 0 20%">
+        <input matInput placeholder="Name of the site" formControlName="name" />
+        <mat-error *ngIf="siteForm.dirty && siteForm.controls.name.touched &&  siteForm.controls.name.invalid">
+          {{'The field name is required'}}</mat-error>
+      </mat-form-field>
+      <mat-form-field fxFlex="0 0 20%">
+        <mat-select placeholder="Site enabled" formControlName="enable">
+          <mat-option></mat-option>
+          <mat-option [value]="true">Enabled</mat-option>
+          <mat-option [value]="false">Disabled</mat-option>
+        </mat-select>
+        <mat-error *ngIf="siteForm.dirty && siteForm.controls.enable.touched && siteForm.controls.enable.invalid">
+          {{'The field enable is required'}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row-reverse">
+      <button mat-raised-button color="primary" [disabled]="!siteForm.valid" (click)="save(siteForm.value)" fxFlex="10">Save</button>
+      <button mat-raised-button color="secondary" (click)="newSite()" fxFlex="10" style="margin-right: 20px;;">New</button>
+    </div>
+  </form>
+</mat-card>
