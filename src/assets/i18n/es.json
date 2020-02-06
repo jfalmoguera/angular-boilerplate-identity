@@ -17,5 +17,9 @@
             "enable": "Esta Activo",
             "expirationDt": "Fecha de expiración"
         }
+    },
+    "menu":{
+        "home":"Inicio",
+        "listOfSites": "Listado de Sites"
     }
 }

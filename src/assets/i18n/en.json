@@ -17,5 +17,9 @@
             "enable": "Enable / Disabled",
             "expirationDt": "Expiration Date"
         }
+    },
+    "menu":{
+        "home":"home",
+        "listOfSites": "List Of Sites"
     }
 }

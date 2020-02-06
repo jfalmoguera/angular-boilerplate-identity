@@ -1,4 +1,4 @@
-<mat-nav-list>
-  <a mat-list-item [routerLink]="['/']">Home</a>
-  <a mat-list-item [routerLink]="['sites']">List of Sites</a>
+<mat-nav-list *transloco="let t; read: 'menu'">
+  <a mat-list-item [routerLink]="['/']">{{ t('home')  }}</a>
+  <a mat-list-item [routerLink]="['sites']">{{ t('listOfSites')  }}</a>
 </mat-nav-list>
