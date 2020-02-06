@@ -1,5 +1,21 @@
 {
     "title": "Gestion de web sites de Zetes",
     "englishLabel": "Inglés",
-    "spanishLabel": "Español"
+    "spanishLabel": "Español",
+    "sites": {
+        "filter":{
+            "title":"Filtra de busqueda",
+            "country": "Pais",
+            "nameOfTheSite":"Nombre del sitio",
+            "siteEnable": "Sitio Activo",
+            "btnSearch":"Buscar"
+        },
+        "grid": {
+            "name": "Nombre",
+            "country": "Pais",
+            "language": "Idioma",
+            "enable": "Esta Activo",
+            "expirationDt": "Fecha de expiración"
+        }
+    }
 }

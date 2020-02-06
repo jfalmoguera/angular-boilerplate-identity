@@ -1,5 +1,21 @@
 {
     "title": "Zetes's web sites Management",
     "englishLabel": "English",
-    "spanishLabel": "Spanish"
+    "spanishLabel": "Spanish",
+    "sites": {
+        "filter": {
+            "title": "Search Filter",
+            "country": "Country",
+            "nameOfTheSite": "Name of the site",
+            "siteEnable": "Site Enabled",
+            "btnSearch":"Search"
+        },
+        "grid": {
+            "name": "Name",
+            "country": "Country",
+            "language": "Language",
+            "enable": "Enable / Disabled",
+            "expirationDt": "Expiration Date"
+        }
+    }
 }

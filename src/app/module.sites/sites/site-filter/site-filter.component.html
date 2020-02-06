@@ -1,20 +1,20 @@
-<mat-card>
+<mat-card *transloco="let t; read: 'sites.filter'">
   <mat-card-header>
-    <mat-card-title> Sites Filter</mat-card-title>
+    <mat-card-title>  <span class="title">{{ t('title')  }}</span></mat-card-title>
   </mat-card-header>
   <form [formGroup]="filterForm">
     <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
       <mat-form-field fxFlex="0 0 20%">
-        <mat-select placeholder="Country" formControlName="countryId">
+        <mat-select [placeholder]="t('country')" formControlName="countryId">
           <mat-option></mat-option>
           <mat-option *ngFor="let item of countries" [value]="item.id">{{item.value}}</mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field fxFlex="0 0 20%">
-        <input matInput placeholder="Name of the site" formControlName="name" />
+        <input matInput [placeholder]="t('nameOfTheSite')" formControlName="name" />
       </mat-form-field>
       <mat-form-field fxFlex="0 0 20%">
-        <mat-select placeholder="Site enabled" formControlName="enable">
+        <mat-select [placeholder]="t('siteEnable')" formControlName="enable">
           <mat-option></mat-option>
           <mat-option [value]="true">Enabled</mat-option>
           <mat-option [value]="false">Disabled</mat-option>
@@ -22,7 +22,7 @@
       </mat-form-field>
     </div>
     <div fxLayout="row-reverse">
-      <button mat-raised-button color="primary" (click)="searchSites(filterForm.value)" fxFlex="10">Search</button>
+      <button mat-raised-button color="primary" (click)="searchSites(filterForm.value)" fxFlex="10">{{t('btnSearch')}}</button>
     </div>
   </form>
 </mat-card>

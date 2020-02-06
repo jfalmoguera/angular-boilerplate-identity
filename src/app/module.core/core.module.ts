@@ -6,30 +6,19 @@ import { environment } from 'src/environments/environment';
 import { SharedModule } from '../module.shared/shared.module';
 import { CORE_COMPONENTS } from './components';
 import { LoginService } from './services/login.service';
-import { TranslocoHttpLoader } from './services/transloco-http-loader.service';
 import { AppComponent } from './views/app.component';
 import { HomeComponent } from './views/home/home.component';
 import { LoginComponent } from './views/login/login.component';
+import { TranslocoRootModule } from '../module.transloco/transloco.module';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
     SharedModule,
-    TranslocoModule
+    TranslocoRootModule,
   ],
   providers: [LoginService,
-    {
-      provide: TRANSLOCO_CONFIG,
-      useValue: translocoConfig({
-        availableLangs: ['en', 'es'],
-        defaultLang: 'en',
-        // Remove this option if your application doesn't support changing language in runtime.
-        reRenderOnLangChange: true,
-        prodMode: environment.production,
-      })
-    },
-    { provide: TRANSLOCO_LOADER, useClass: TranslocoHttpLoader }
   ],
   declarations: [AppComponent, HomeComponent, LoginComponent, CORE_COMPONENTS]
 })
