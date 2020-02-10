@@ -1,4 +1,4 @@
-<app-header *ngIf="!isLogin" [user]="usuario" (menuClicked)="menuClicked()" (logout)="logoutClicked()" [selectedLanguage]="selectedLanguage"
+<app-header [user]="usuario" (menuClicked)="menuClicked()" (logout)="logoutClicked()" [selectedLanguage]="selectedLanguage"
     (toogleLanguage)="toogleLanguage($event)"></app-header>
 <mat-sidenav-container>
     <mat-sidenav [opened]="menuOpen" mode="side">

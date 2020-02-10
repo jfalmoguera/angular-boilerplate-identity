@@ -1,6 +1,7 @@
 # SitesMngt
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.0-rc.8.
+This project was udpated to Angular 9
+User / Pass: max/geheim
 
 ## Development server
 

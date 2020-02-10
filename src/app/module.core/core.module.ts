@@ -8,8 +8,8 @@ import { CORE_COMPONENTS } from './components';
 import { LoginService } from './services/login.service';
 import { AppComponent } from './views/app.component';
 import { HomeComponent } from './views/home/home.component';
-import { LoginComponent } from './views/login/login.component';
 import { TranslocoRootModule } from '../module.transloco/transloco.module';
+import { OAuthModule } from 'angular-oauth2-oidc';
 
 @NgModule({
   imports: [
@@ -17,9 +17,10 @@ import { TranslocoRootModule } from '../module.transloco/transloco.module';
     RouterModule,
     SharedModule,
     TranslocoRootModule,
+    OAuthModule.forRoot()
   ],
   providers: [LoginService,
   ],
-  declarations: [AppComponent, HomeComponent, LoginComponent, CORE_COMPONENTS]
+  declarations: [AppComponent, HomeComponent, CORE_COMPONENTS]
 })
 export class CoreModule { }
