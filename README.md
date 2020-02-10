@@ -1,7 +1,6 @@
 # SitesMngt
 
 This project was udpated to Angular 9
-User / Pass: max/geheim
 
 ## Development server
 
